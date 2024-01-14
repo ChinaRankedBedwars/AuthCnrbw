@@ -36,8 +36,10 @@ public class LocalServer {
                 OutputStream os = exchange.getResponseBody();
                 if (success)
                     os.write(("{\"success\":true,\"data\":\"" + CodeEventHandler.codes.get(ign).code + "\"}").getBytes());
+                else if (ign.equalsIgnoreCase("ign"))
+                    os.write(("{\"success\":false,\"data\":\"\\u4f60\\u90fd\\u8f93\\u5165\\u4e86\\u4e9b\\u5565\\uff1f\\uff1f\\uff1f\"}").getBytes());
                 else
-                    os.write(("{\"success\":false,\"data\":\"Not Found or Expired\"}").getBytes());
+                    os.write(("{\"success\":false,\"data\":\"\\u9a8c\\u8bc1\\u7801\\u4e0d\\u5b58\\u5728\\u6216\\u5df2\\u8fc7\\u671f\\uff0c\\u8bf7\\u91cd\\u65b0\\u83b7\\u53d6\"}").getBytes());
                 os.close();
             } catch (Exception e) {
                 e.printStackTrace();
